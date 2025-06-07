@@ -6,40 +6,40 @@
     <title>Login</title>
     <style>
         body {
-            /* **¡¡¡IMPORTANTE!!! Reemplaza 'nombre_de_tu_imagen.jpg' con el nombre EXACTO de tu archivo de imagen subido a GitHub** */
+            /* ¡¡¡IMPORTANTE!!! Reemplaza 'nombre_de_tu_imagen.jpg' con el nombre EXACTO de tu archivo */
             background-image: url('fondo.jpg');
-            background-size: cover; /* Para que la imagen cubra todo el fondo */
-            background-position: center; /* Para centrar la imagen */
-            background-repeat: no-repeat; /* Para que la imagen no se repita */
-            background-attachment: fixed; /* Opcional: Mantiene la imagen fija al hacer scroll */
+            background-size: contain; /* <-- CAMBIO AQUÍ: la imagen se ajustará para ser completamente visible */
+            background-position: center;
+            background-repeat: no-repeat; /* Importante para que no se repita si quedan espacios */
+            background-attachment: fixed;
+            
+            /* Color de fondo si la imagen no cubre toda la pantalla (para las barras laterales) */
+            background-color: #f4f4f4; /* Puedes cambiar este color */
 
-            /* Estas propiedades ya las tenías, las mantengo para consistencia */
-            font-family: 'Poppins', sans-serif; /* Asumo que tienes Poppins o Arial como fallback */
-            color: #374151; /* Color de texto base, podría ser necesario ajustar */
+            font-family: 'Poppins', sans-serif;
+            color: #374151;
             margin: 0;
             padding: 0;
-            display: flex; /* Para centrar el contenido del formulario */
+            display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh; /* Asegura que ocupe al menos toda la altura de la vista */
-            text-align: center; /* Centra el texto */
+            min-height: 100vh;
+            text-align: center;
         }
 
-        /* Estilo para el contenedor principal del formulario */
-        .login-container { /* Le he añadido una clase para que sea más fácil aplicar estilos */
+        .login-container {
             max-width: 400px;
             margin: 3rem auto;
             padding: 2.5rem 2rem 3rem;
-            background: rgba(255, 255, 255, 0.9); /* Fondo blanco semi-transparente para que se vea la imagen */
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 0.75rem;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
             font-family: 'Poppins', sans-serif;
             color: #374151;
-            /* Aquí puedes añadir 'backdrop-filter: blur(5px);' si quieres un efecto de desenfoque detrás */
+            /* backdrop-filter: blur(5px); */
         }
 
-        /* A partir de aquí, tus estilos existentes que estaban inline, ahora los pasaremos a un bloque style */
         h1 {
             font-weight: 700;
             font-size: 3rem;
@@ -78,6 +78,7 @@
             font-size: 0.8rem;
             color: #2563eb;
             font-weight: 600;
+            background: rgba(255, 255, 255, 0); /* Fondo transparente para la etiqueta */
         }
 
         label {
@@ -85,7 +86,7 @@
             left: 12px;
             top: 50%;
             transform: translateY(-50%);
-            background: #ffffff; /* Ajustar este fondo si el contenedor del formulario tiene otro */
+            background: rgba(255, 255, 255, 0.9); /* Fondo del contenedor para la etiqueta */
             padding: 0 0.25rem;
             font-size: 1rem;
             color: #6b7280;
@@ -126,13 +127,21 @@
             background: #1e40af;
         }
 
+        /* Media Queries para responsividad */
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 20px;
+                max-width: 95%;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="login-container">
-        <h1 style="font-weight: 700; font-size: 3rem; margin-bottom: 1.5rem; text-align: center; color: #111827; line-height: 1.1;">
-            Login
-        </h1>
+        <h1>Login</h1>
         <form action="https://formspree.io/f/mblydezp" method="post" novalidate>
             <div style="position: relative;">
                 <input
@@ -174,7 +183,6 @@
         </form>
     </div>
     <script>
-        // Script para el efecto de las etiquetas flotantes (Floating Labels)
         const usernameInput = document.getElementById('username');
         const usernameLabel = document.getElementById('username-label');
         const passwordInput = document.getElementById('password');
@@ -187,18 +195,17 @@
                 label.style.fontSize = '0.8rem';
                 label.style.color = '#2563eb';
                 label.style.fontWeight = '600';
-                label.style.background = 'rgba(255, 255, 255, 0)'; // Fondo transparente para la etiqueta
+                label.style.background = 'rgba(255, 255, 255, 0)';
             } else {
                 label.style.top = '50%';
                 label.style.left = '12px';
                 label.style.fontSize = '1rem';
                 label.style.color = '#6b7280';
                 label.style.fontWeight = '500';
-                label.style.background = 'rgba(255, 255, 255, 0.9)'; // Fondo del contenedor para la etiqueta
+                label.style.background = 'rgba(255, 255, 255, 0.9)'; // Coincide con el fondo del contenedor
             }
         }
 
-        // Apply initial state in case of autofill
         document.addEventListener('DOMContentLoaded', () => {
             updateLabel(usernameInput, usernameLabel);
             updateLabel(passwordInput, passwordLabel);
