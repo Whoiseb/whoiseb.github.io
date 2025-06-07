@@ -1,0 +1,181 @@
+<div style="max-width: 400px; margin: 3rem auto; padding: 2.5rem 2rem 3rem; background: #ffffff; border-radius: 0.75rem; box-shadow: 0 8px 20px rgb(0 0 0 / 0.08); font-family: 'Poppins',sans-serif; color: #374151;">
+  <h1 style="font-weight: 700; font-size: 3rem; margin-bottom: 1.5rem; text-align: center; color: #111827; line-height: 1.1;">
+    Login
+  </h1>
+  <form action="procesar_login.php" method="post" novalidate style="display: flex; flex-direction: column; gap: 1.5rem;">
+    <div style="position: relative;">
+      <input 
+        type="text" 
+        name="log" 
+        id="username" 
+        placeholder=" " 
+        required 
+        autocomplete="username"
+        style="
+          width: 100%;
+          padding: 1rem 1rem 1rem 0.75rem;
+          font-size: 1rem;
+          border-radius: 0.5rem;
+          border: 1.5px solid #d1d5db;
+          background: #f9fafb;
+          color: #111827;
+          outline-offset: 2px;
+          transition: border-color 0.3s ease;
+          box-sizing: border-box;
+        "
+        onfocus="this.style.borderColor='#2563eb'; this.style.background='#fff';"
+        onblur="this.style.borderColor='#d1d5db'; this.style.background='#f9fafb';"
+      />
+      <label for="username" style="
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #ffffff;
+        padding: 0 0.25rem;
+        font-size: 1rem;
+        color: #6b7280;
+        pointer-events: none;
+        transition: 0.3s ease all;
+        font-weight: 500;
+      " id="username-label">
+        Username or e-mail address
+      </label>
+      <script>
+        const usernameInput = document.getElementById('username');
+        const usernameLabel = document.getElementById('username-label');
+        usernameInput.addEventListener('input', () => {
+          if (usernameInput.value.trim() !== '') {
+            usernameLabel.style.top = '-0.5rem';
+            usernameLabel.style.left = '0.75rem';
+            usernameLabel.style.fontSize = '0.8rem';
+            usernameLabel.style.color = '#2563eb';
+            usernameLabel.style.fontWeight = '600';
+          } else if (document.activeElement !== usernameInput) {
+            usernameLabel.style.top = '50%';
+            usernameLabel.style.left = '12px';
+            usernameLabel.style.fontSize = '1rem';
+            usernameLabel.style.color = '#6b7280';
+            usernameLabel.style.fontWeight = '500';
+          }
+        });
+        usernameInput.addEventListener('focus', () => {
+          usernameLabel.style.top = '-0.5rem';
+          usernameLabel.style.left = '0.75rem';
+          usernameLabel.style.fontSize = '0.8rem';
+          usernameLabel.style.color = '#2563eb';
+          usernameLabel.style.fontWeight = '600';
+        });
+        usernameInput.addEventListener('blur', () => {
+          if (usernameInput.value.trim() === '') {
+            usernameLabel.style.top = '50%';
+            usernameLabel.style.left = '12px';
+            usernameLabel.style.fontSize = '1rem';
+            usernameLabel.style.color = '#6b7280';
+            usernameLabel.style.fontWeight = '500';
+          }
+        });
+      </script>
+    </div>
+
+    <div style="position: relative;">
+      <input 
+        type="password" 
+        name="pwd" 
+        id="password" 
+        placeholder=" " 
+        required 
+        autocomplete="current-password"
+        style="
+          width: 100%;
+          padding: 1rem 1rem 1rem 0.75rem;
+          font-size: 1rem;
+          border-radius: 0.5rem;
+          border: 1.5px solid #d1d5db;
+          background: #f9fafb;
+          color: #111827;
+          outline-offset: 2px;
+          transition: border-color 0.3s ease;
+          box-sizing: border-box;
+        "
+        onfocus="this.style.borderColor='#2563eb'; this.style.background='#fff';"
+        onblur="this.style.borderColor='#d1d5db'; this.style.background='#f9fafb';"
+      />
+      <label for="password" style="
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        background: #ffffff;
+        padding: 0 0.25rem;
+        font-size: 1rem;
+        color: #6b7280;
+        pointer-events: none;
+        transition: 0.3s ease all;
+        font-weight: 500;
+      " id="password-label">
+        Password
+      </label>
+      <script>
+        const passwordInput = document.getElementById('password');
+        const passwordLabel = document.getElementById('password-label');
+        passwordInput.addEventListener('input', () => {
+          if (passwordInput.value.trim() !== '') {
+            passwordLabel.style.top = '-0.5rem';
+            passwordLabel.style.left = '0.75rem';
+            passwordLabel.style.fontSize = '0.8rem';
+            passwordLabel.style.color = '#2563eb';
+            passwordLabel.style.fontWeight = '600';
+          } else if (document.activeElement !== passwordInput) {
+            passwordLabel.style.top = '50%';
+            passwordLabel.style.left = '12px';
+            passwordLabel.style.fontSize = '1rem';
+            passwordLabel.style.color = '#6b7280';
+            passwordLabel.style.fontWeight = '500';
+          }
+        });
+        passwordInput.addEventListener('focus', () => {
+          passwordLabel.style.top = '-0.5rem';
+          passwordLabel.style.left = '0.75rem';
+          passwordLabel.style.fontSize = '0.8rem';
+          passwordLabel.style.color = '#2563eb';
+          passwordLabel.style.fontWeight = '600';
+        });
+        passwordInput.addEventListener('blur', () => {
+          if (passwordInput.value.trim() === '') {
+            passwordLabel.style.top = '50%';
+            passwordLabel.style.left = '12px';
+            passwordLabel.style.fontSize = '1rem';
+            passwordLabel.style.color = '#6b7280';
+            passwordLabel.style.fontWeight = '500';
+          }
+        });
+      </script>
+    </div>
+
+    <div style="text-align: right; font-size: 0.9rem; color: #6b7280; margin-top: -0.75rem; margin-bottom: 1rem;">
+      <a href="/wp-login.php?action=lostpassword" style="color: #2563eb; text-decoration: none; transition: color 0.25s ease;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';" tabindex="0">
+        Forgot your password?
+      </a>
+    </div>
+
+    <button type="submit" aria-label="Login" style="
+      background: #2563eb;
+      color: #fff;
+      padding: 1rem;
+      font-weight: 600;
+      font-size: 1.125rem;
+      border: none;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    " 
+    onmouseover="this.style.background='#1e40af';" 
+    onmouseout="this.style.background='#2563eb';" 
+    onfocus="this.style.background='#1e40af';" 
+    onblur="this.style.background='#2563eb';"
+    >
+      Entrar
+    </button>
+  </form>
+</div>
